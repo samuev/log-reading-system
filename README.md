@@ -71,7 +71,7 @@ The system provides several endpoints for managing log files:
 - `DELETE /delete-log`: Deletes a log from the database.
 
 ## REST examples
-In this examples, replace "log1.txt" with the name of the log file you want to proceed
+In this examples, replace "log1.txt" with the name of the log file you want to proceed from /logs directory
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"filename":"log1.txt"}' http://localhost:5000/check-pattern
 curl -X GET http://localhost:5000/searched-logs
