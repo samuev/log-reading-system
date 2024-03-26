@@ -88,7 +88,7 @@ The system uses the following environment variables:
 These variables are set in the `docker-compose.yml` file.
 
 ## Dockerization
-The entire solution is dockerized, which means it can be easily set up and run on any system with Docker installed. The Docker Compose file in the root directory of the project defines the services that make up the application (the Flask server and the MongoDB database), and the Dockerfiles define the environment and the dependencies needed to run the services.
+The entire solution is dockerized, which means it can be easily set up and run on any system with Docker installed. The Docker Compose file in the app directory of the project defines the services that make up the application (the Flask server and the MongoDB database), and the Dockerfiles define the environment and the dependencies needed to run the services.
 
 ## Unittest 
 In this project I created two separate unittests:
