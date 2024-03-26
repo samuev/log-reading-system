@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flask
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    networks:
+      - backend
+    environment:
+      MONGODB_USERNAME: appuser
+      MONGODB_PASSWORD: appuserpassword
+      FLASK_APP: app.py
+      FLASK_ENV: development
+    ports:
+      - "5000:5000"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: logsdb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mongodb_data_container:
+  
